@@ -1,20 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import fetch from 'isomorphic-fetch'
 import MessagePage from './MessagePage'
 
 function App() {
-  const [allMessages, setMessages] = React.useState()
-  const [user, setUser] = React.useState('me')
+  const [allMessages, setAllMessages] = React.useState()
+  const [user, setUser] = React.useState({name: 'Your User',   abbrev: 'me'})
 
   React.useEffect(() => {
-    setMessages([
-      {message: 'Hello World', user: {name: 'Computer', abbrev: 'cpu'}},
-      {message: 'uhm, hi?',    user: {name: 'Your User',   abbrev: 'me'}}
+    setAllMessages([
+      {message: 'Hello World', user: {name: 'Computer',  abbrev: 'cpu'}},
     ])
   }, [])
+
+  const setMessages = (x) => {
+    setAllMessages(x)
+  }
 
   return (
     <div>
@@ -25,7 +26,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path='/'>
-              <MessagePage user={user} messages={allMessages}/>
+              <MessagePage user={user} setMessages={setMessages} messages={allMessages}/>
             </Route>
           </Switch>
         </Router>
