@@ -18,12 +18,12 @@ const MessagePage = (props) => {
     setCurrentMessage('')
   }
 
-  console.log('messagesArray =', messagesArray);
+  console.log('messagesArray', messagesArray);
   const message = messagesArray.map((x, index) => {
     if (x.user.abbrev === props.user.abbrev) {
       return <div key={index} className='bubble'><b>{x.user.name}</b>: {x.message}</div>
     } else {
-      return <div key={index} className='bubble'><span>{x.user.name}</span>: {x.message}</div>
+      return <div key={index} className='bubble'><b>{x.user.name}</b>: {x.message}</div>
     }
   })
 

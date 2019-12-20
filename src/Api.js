@@ -7,12 +7,8 @@ const postJSON = (url, jsonBody) => fetch(url, {
 }).then((response) => response.json());
 
 export default class CustomApi {
-  constructor() {
-    this.baseURL = 'http://localhost:3000/api';
-  }
-
-  getRoot() {
-    return fetch(`${this.baseURL}`)
+  getMessages() {
+    return fetch(`http://localhost:3001/api`)
       .then((response) => response.json())
       .then((r) => {
         console.log(r)
@@ -22,7 +18,7 @@ export default class CustomApi {
 
   postMessages(messages) {
     console.log('postMessages >> recieved', typeof messages);
-    return postJSON(`${this.baseURL}`, {
+    return postJSON(`http://localhost:3001/api`, {
       ...messages,
       id: 0,
     });

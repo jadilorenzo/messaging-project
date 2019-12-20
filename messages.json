@@ -1,0 +1,28 @@
+{
+  "api": {
+    "array": [
+      {
+        "message": "Hello World",
+        "user": {
+          "name": "Computer",
+          "abbrev": "cpu"
+        }
+      },
+      {
+        "message": "Hi.",
+        "user": {
+          "name": "Jacob Di Lorenzo",
+          "abbrev": "Jacob"
+        }
+      },
+      {
+        "message": "Hi Jacob!",
+        "user": {
+          "name": "Daniel Harris",
+          "abbrev": "DH"
+        }
+      }
+    ],
+    "id": 0
+  }
+}

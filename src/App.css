@@ -22,12 +22,13 @@
 }
 
 .bubble {
-  padding: 10px;
+  padding: 1%;
   border-radius: 10px;
   background-color: whitesmoke;
   margin-bottom: 10px;
   margin-top: 10px;
-  width: 100%;
+  width: 98%;
+  border: none;
 }
 
 input {
@@ -36,4 +37,18 @@ input {
 
 form {
   margin-top: 10px;
+}
+
+hr {
+  border: solid 0.2px #282c34;
+  width: calc(100%);
+}
+
+button {
+  text-align: left;
+}
+
+a {
+  color: dodgerblue;
+  text-decoration: none;
 }
