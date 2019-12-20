@@ -2,20 +2,25 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import MessagePage from './MessagePage'
+import Api from './Api'
+const api = new Api()
 
 function App() {
-  const [allMessages, setAllMessages] = React.useState()
+  const [allMessages, setAllMessages] = React.useState({array: []})
   const [user, setUser] = React.useState({name: 'Your User',   abbrev: 'me'})
 
-  React.useEffect(() => {
-    setAllMessages([
-      {message: 'Hello World', user: {name: 'Computer',  abbrev: 'cpu'}},
-    ])
-  }, [])
-
-  const setMessages = (x) => {
+  const setGlobalMessages = (x) => {
     setAllMessages(x)
+    api.postMessages(x)
   }
+
+  React.useEffect(() => {
+    api.getRoot()
+      .then((r) => {
+        return r
+      })
+      .then((r) => setAllMessages(r))
+  }, [])
 
   return (
     <div>
@@ -25,8 +30,11 @@ function App() {
       <div className='App-main'>
         <Router>
           <Switch>
+            <Route exact path='/messageApp'>
+              <MessagePage api={api} user={user} setGlobalMessages={setGlobalMessages} messages={allMessages}/>
+            </Route>
             <Route exact path='/'>
-              <MessagePage user={user} setMessages={setMessages} messages={allMessages}/>
+              <Login setUser={setUser}/>
             </Route>
           </Switch>
         </Router>

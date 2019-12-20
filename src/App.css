@@ -26,9 +26,14 @@
   border-radius: 10px;
   background-color: whitesmoke;
   margin-bottom: 10px;
-  width: 350px;
+  margin-top: 10px;
+  width: 100%;
 }
 
 input {
   font-size: 12pt;
+}
+
+form {
+  margin-top: 10px;
 }
