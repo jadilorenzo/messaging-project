@@ -1,5 +1,5 @@
 {
-  "api": {
+  "messages": {
     "array": [
       {
         "message": "Hello World",
@@ -21,8 +21,24 @@
           "name": "Daniel Harris",
           "abbrev": "DH"
         }
+      },
+      {
+        "message": "Hey DH!",
+        "user": {
+          "name": "Jacob Di Lorenzo",
+          "abbrev": "jad"
+        }
       }
     ],
     "id": 0
-  }
+  },
+  "users" : [
+    "Daniel Harris",
+    "Jacob Di Lorenzo",
+    "Matthew Di Lorenzo",
+    "Christiana Di Lorenzo",
+    "Christian Di Lorenzo",
+    "Jacqueline Di Lorenzo",
+    "Olivia Harris"
+  ]
 }

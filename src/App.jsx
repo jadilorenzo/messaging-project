@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import MessagePage from './MessagePage.jsx'
-import Login from './Login.jsx'
+import MessagePage from './pages/MessagePage.jsx'
+import Login from './pages/Login.jsx'
+
 import Api from './Api'
 const api = new Api()
 
@@ -29,7 +30,7 @@ function App() {
   return (
     <Router>
       <header>
-        <div className='App-header'><span className='App-main' style={{padding: '20px'}}><h1>Message</h1> <Link to='/'>Login</Link></span></div>
+        <div className='App-header'><span className='App-main' style={{padding: '20px'}}><h1>How's It</h1> <Link to='/'>Login</Link></span></div>
       </header>
       <div className='App-main'>
         <Switch>
@@ -37,7 +38,7 @@ function App() {
             <MessagePage api={api} user={user} setGlobalMessages={setGlobalMessages} messages={allMessages}/>
           </Route>
           <Route exact path='/'>
-            <Login setUser={setUser}/>
+            <Login api={api} setUser={setUser}/>
           </Route>
         </Switch>
       </div>

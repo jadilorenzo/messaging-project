@@ -8,7 +8,7 @@ const postJSON = (url, jsonBody) => fetch(url, {
 
 export default class CustomApi {
   getMessages() {
-    return fetch(`http://localhost:3001/api`)
+    return fetch(`http://localhost:3001/messages`)
       .then((response) => response.json())
       .then((r) => {
         console.log(r)
@@ -18,9 +18,18 @@ export default class CustomApi {
 
   postMessages(messages) {
     console.log('postMessages >> recieved', typeof messages);
-    return postJSON(`http://localhost:3001/api`, {
+    return postJSON(`http://localhost:3001/messages`, {
       ...messages,
       id: 0,
     });
+  }
+
+  getContacts() {
+    return fetch(`http://localhost:3001/users`)
+      .then((response) => response.json())
+      .then((r) => {
+        console.log(r)
+        return r
+      })
   }
 }
