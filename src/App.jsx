@@ -12,6 +12,7 @@ const api = new Api()
 function App() {
   const [allMessages, setAllMessages] = useState({array: []})
   const [user, setUser] = useState({name: 'Your User', abbrev: 'me'})
+  const [contacts, setContacts] = useState({array: [{}]})
 
   const setGlobalMessages = (x) => {
     setAllMessages(x)
@@ -21,6 +22,8 @@ function App() {
   useEffect(() => {
     api.getMessages()
       .then((r) => setAllMessages(r))
+    api.getContacts()
+      .then((r) => setContacts(r))
     setUser(JSON.parse(window.localStorage.getItem('user')))
   }, [])
 
@@ -35,13 +38,13 @@ function App() {
             <MessagePage api={api} user={user} setGlobalMessages={setGlobalMessages} messages={allMessages}/>
           </Route>
           <Route exact path='/'>
-            <Login api={api} setUser={setUser}/>
+            <Login api={api} contacts={contacts} setUser={setUser}/>
           </Route>
           <Route exact path='/profile/:user'>
-            <Profile api={api} user={user} setUser={setUser}/>
+            <Profile contacts={contacts} api={api} setUser={setUser} user={user}/>
           </Route>
           <Route exact path='/create_user'>
-            <CreateUserPage api={api} user={user} setUser={setUser}/>
+            <CreateUserPage contacts={contacts} api={api} user={user} setUser={setUser}/>
           </Route>
         </Switch>
       </div>

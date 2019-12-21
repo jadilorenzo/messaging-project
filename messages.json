@@ -28,20 +28,45 @@
           "name": "Jacob Di Lorenzo",
           "abbrev": "jad"
         }
+      },
+      {
+        "message": "Hello",
+        "user": {
+          "name": "Christian Di Lorenzo",
+          "status": "none"
+        }
       }
     ],
     "id": 0
   },
   "users": {
     "array": [
-      "Daniel Harris",
-      "Jacob Di Lorenzo",
-      "Matthew Di Lorenzo",
-      "Christiana Di Lorenzo",
-      "Christian Di Lorenzo",
-      "Jacqueline Di Lorenzo",
-      "Olivia Harris",
-      "Bob Di Lorenzo"
+      {
+        "name": "Daniel Harris"
+      },
+      {
+        "name": "Jacob Di Lorenzo",
+        "img": "https://avatars1.githubusercontent.com/u/46056370?s=40&v=4"
+      },
+      {
+        "name": "Matthew Di Lorenzo"
+      },
+      {
+        "name": "Christiana Di Lorenzo"
+      },
+      {
+        "name": "Christian Di Lorenzo",
+        "img": "https://avatars1.githubusercontent.com/u/634167?s=460&v=4"
+      },
+      {
+        "name": "Jacqueline Di Lorenzo"
+      },
+      {
+        "name": "Olivia Harris"
+      },
+      {
+        "name": "Bob Di Lorenzo"
+      }
     ]
   }
 }

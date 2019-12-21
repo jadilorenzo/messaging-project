@@ -1,17 +1,16 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {Redirect, Link} from 'react-router-dom'
 
 const Login = (props) => {
   const [name, setName] = useState('')
   const [status, setStatus] = useState('')
   const [redirect, setRedirect] = useState(false)
-  const [users, setUsers] = useState([])
   const [failed, setFailed] = useState(false)
 
   const submit = (e) => {
     e.preventDefault()
-    console.log(['name'].find(n => n === name) === name);
-    if (users.find(n => n === name) === name) {
+    let containsArray = props.contacts.array.map(e => e.name === name)
+    if (containsArray.includes(true)) {
         props.setUser({name: name, status: status})
         window.localStorage.setItem('user', JSON.stringify({name: name, status: status}))
         setRedirect(true)
@@ -19,10 +18,6 @@ const Login = (props) => {
       setFailed(true)
     }
   }
-
-  useEffect(() => {
-    props.api.getContacts().then(({array}) => setUsers(array))
-  }, [props.api])
 
   if (redirect) {
     return <Redirect to='/messageApp'/>
