@@ -32,13 +32,16 @@
     ],
     "id": 0
   },
-  "users" : [
-    "Daniel Harris",
-    "Jacob Di Lorenzo",
-    "Matthew Di Lorenzo",
-    "Christiana Di Lorenzo",
-    "Christian Di Lorenzo",
-    "Jacqueline Di Lorenzo",
-    "Olivia Harris"
-  ]
+  "users": {
+    "array": [
+      "Daniel Harris",
+      "Jacob Di Lorenzo",
+      "Matthew Di Lorenzo",
+      "Christiana Di Lorenzo",
+      "Christian Di Lorenzo",
+      "Jacqueline Di Lorenzo",
+      "Olivia Harris",
+      "Bob Di Lorenzo"
+    ]
+  }
 }

@@ -1,21 +1,28 @@
 import React, {useState, useEffect} from 'react'
-import {Redirect, Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
-const Login = (props) => {
+const CreateUserPage = (props) => {
   const [name, setName] = useState('')
   const [contacts, setContacts] = useState('')
+  const [redirect, setRedirect] = useState(false)
 
   const submit = (e) => {
     e.preventDefault()
-    console.log(['name'].find(n => name === name) === name);
     props.setUser({name: name, status: null})
     window.localStorage.setItem('user', JSON.stringify({name: name, status: null}))
-    props.api.postContacts()
+    let newContacts = contacts
+    newContacts.push(name)
+    props.api.postContacts({array: newContacts})
+    setRedirect(true)
   }
 
   useEffect(() => {
-    props.api.postContacts()
-  })
+    props.api.getContacts().then(({array}) => setContacts(array))
+  }, [props.api])
+
+  if (redirect) {
+    return <Redirect to='/messageApp'/>
+  }
 
   return (
     <div style={{paddingTop: '10px'}}>
@@ -30,4 +37,4 @@ const Login = (props) => {
   )
 }
 
-export default Login
+export default CreateUserPage

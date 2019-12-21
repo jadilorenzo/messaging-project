@@ -1,9 +1,6 @@
-import React, {useState, useEffect} from 'react'
-import {Redirect, Link, useParams} from 'react-router-dom'
+import React from 'react'
 
 const Profile = (props) => {
-  const params = useParams()
-
   return (
     <div style={{paddingTop: '10px'}}>
       {props.user.name}

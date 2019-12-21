@@ -10,7 +10,7 @@ const Login = (props) => {
 
   const submit = (e) => {
     e.preventDefault()
-    console.log(['name'].find(n => name === name) === name);
+    console.log(['name'].find(n => n === name) === name);
     if (users.find(n => n === name) === name) {
         props.setUser({name: name, status: status})
         window.localStorage.setItem('user', JSON.stringify({name: name, status: status}))
@@ -21,8 +21,8 @@ const Login = (props) => {
   }
 
   useEffect(() => {
-    props.api.getContacts().then(setUsers)
-  }, [])
+    props.api.getContacts().then(({array}) => setUsers(array))
+  }, [props.api])
 
   if (redirect) {
     return <Redirect to='/messageApp'/>

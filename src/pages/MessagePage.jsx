@@ -33,12 +33,10 @@ const MessagePage = (props) => {
       <em><div style={{marginTop: '10px', marginBottom: '10px'}}>Messages</div></em>
       <div>{message}</div>
       <form onSubmit={submit}>
-        <input className='input' onChange={change} className='bubble' style={{marginTop: '0px', border: 'none', float: 'left'}} value={currentMessage}/>
+        <input onChange={change} className='input bubble' style={{marginTop: '0px', border: 'none', float: 'left'}} value={currentMessage}/>
       </form>
     </div>
   )
-
-  return null
 }
 
 export default MessagePage

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import MessagePage from './pages/MessagePage.jsx'
 import Login from './pages/Login.jsx'
 import Profile from './pages/Profile.jsx'
+import CreateUserPage from './pages/CreateUserPage.jsx'
 
 import Api from './Api'
 const api = new Api()
@@ -19,13 +20,8 @@ function App() {
 
   useEffect(() => {
     api.getMessages()
-      // .then((r) => {
-      //   return r
-      // })
       .then((r) => setAllMessages(r))
-    if (typeof window.localStorage.getItem('user') !== 'falsy') {
-      setUser(JSON.parse(window.localStorage.getItem('user')))
-    }
+    setUser(JSON.parse(window.localStorage.getItem('user')))
   }, [])
 
   return (
@@ -43,6 +39,9 @@ function App() {
           </Route>
           <Route exact path='/profile/:user'>
             <Profile api={api} user={user} setUser={setUser}/>
+          </Route>
+          <Route exact path='/create_user'>
+            <CreateUserPage api={api} user={user} setUser={setUser}/>
           </Route>
         </Switch>
       </div>
