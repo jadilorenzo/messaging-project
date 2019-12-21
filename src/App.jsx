@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import MessagePage from './pages/MessagePage.jsx'
 import Login from './pages/Login.jsx'
+import Profile from './pages/Profile.jsx'
 
 import Api from './Api'
 const api = new Api()
@@ -30,7 +31,7 @@ function App() {
   return (
     <Router>
       <header>
-        <div className='App-header'><span className='App-main' style={{padding: '20px'}}><h1>How's It</h1> <Link to='/'>Login</Link></span></div>
+        <div className='App-header'><span className='App-main' style={{padding: '20px'}}><h1>Local Messenger</h1> <Link to='/'>Login</Link></span></div>
       </header>
       <div className='App-main'>
         <Switch>
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route exact path='/'>
             <Login api={api} setUser={setUser}/>
+          </Route>
+          <Route exact path='/profile/:user'>
+            <Profile api={api} user={user} setUser={setUser}/>
           </Route>
         </Switch>
       </div>

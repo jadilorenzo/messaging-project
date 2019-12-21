@@ -17,7 +17,6 @@ export default class CustomApi {
   }
 
   postMessages(messages) {
-    console.log('postMessages >> recieved', typeof messages);
     return postJSON(`http://localhost:3001/messages`, {
       ...messages,
       id: 0,
@@ -31,5 +30,9 @@ export default class CustomApi {
         console.log(r)
         return r
       })
+  }
+
+  postContacts(users) {
+    return postJSON(`http://localhost:3001/users`, users);
   }
 }

@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Link} from 'react-router-dom'
 
 const MessagePage = (props) => {
   console.log(props);
@@ -21,9 +22,9 @@ const MessagePage = (props) => {
   console.log('messagesArray', messagesArray);
   const message = messagesArray.map((x, index) => {
     if (x.user.abbrev === props.user.abbrev) {
-      return <div key={index} className='bubble'><b>{x.user.name}</b>: {x.message}</div>
+      return <div key={index} className='bubble'><Link to={`/profile/${x.user.name}`} >{x.user.name}</Link>: {x.message}</div>
     } else {
-      return <div key={index} className='bubble'><b>{x.user.name}</b>: {x.message}</div>
+      return <div key={index} className='bubble'><Link to={`/profile/${x.user.name}`} >{x.user.name}</Link>: {x.message}</div>
     }
   })
 
