@@ -10,7 +10,7 @@ const CreateUserPage = (props) => {
     e.preventDefault()
     props.setUser({name: name, status: null})
     window.localStorage.setItem('user', JSON.stringify({name: name, status: null}))
-    let newContacts = props.contacts
+    let newContacts = props.contacts.array
     newContacts.push({name: name, img: img})
     props.api.postContacts({array: newContacts})
     setRedirect(true)
